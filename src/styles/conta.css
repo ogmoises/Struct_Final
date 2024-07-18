@@ -1,0 +1,78 @@
+/* Estilos gerais */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f5f5f5;
+}
+
+/* Container da página */
+.account-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 300px;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    text-align: center;
+}
+
+/* Cabeçalho */
+h1 {
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 24px;
+}
+
+/* Informações do usuário */
+p {
+    font-size: 16px;
+    color: #333;
+}
+
+/* Botão de logout */
+.logout-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #000000;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 20px;
+}
+
+.logout-button:hover {
+    background-color: #333333;
+}
+
+/* Link para a página inicial */
+.home-link {
+    margin-top: 20px;
+    text-align: center;
+    width: 100%;
+}
+
+.home-link a {
+    color: #5fa5fa;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+.home-link a:hover {
+    color: #000000;
+}

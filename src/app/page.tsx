@@ -1,11 +1,13 @@
 "use client";
-import React,{useState} from 'react';
+import React from 'react';
 import Header from "./_components/Header"
+import { AuthProvider } from '../server/authContext';
 
-export default function Page () {
+export default function Page({ children }: { children: React.ReactNode }) {
   return (
-    <main>
+    <AuthProvider>
       <Header/>
-    </main>
+      <main>{children}</main>
+    </AuthProvider>
   )
 }

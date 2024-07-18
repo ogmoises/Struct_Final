@@ -1,4 +1,6 @@
 import { useState, type ChangeEvent, type FormEvent } from "react";
+import { useAuth } from '../../server/authContext';
+
 
 export default function useLoginForm() {
   const [formData, setFormData] = useState({
@@ -10,6 +12,8 @@ export default function useLoginForm() {
     email: "",
     password: "",
   });
+
+  const { login } = useAuth();
 
   function handleChange(event: ChangeEvent<HTMLInputElement>) {
     setFormData({ ...formData, [event.target.name]: event.target.value });
@@ -38,6 +42,8 @@ export default function useLoginForm() {
 
       const data = await response.json();
       console.log("Usuário logado:", data);
+
+      login(data.usuario);
 
     } catch (error) {
       console.error("Erro ao logar:", error);

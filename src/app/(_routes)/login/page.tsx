@@ -4,7 +4,7 @@ import React from 'react';
 import useLoginForm from '../../hooks/useLoginForm';
 import '~/styles/login.css';
 
-export default function Login(){
+export default function Login() {
     const { formData, errors, handleChange, handleSubmit } = useLoginForm();
 
     return (
@@ -15,23 +15,23 @@ export default function Login(){
                     <div className="input-group">
                         <label htmlFor="email">Email</label>
                         <input
-                        type="text"
-                        id="email"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleChange}
-                        required />
+                            type="text"
+                            id="email"
+                            name="email"
+                            value={formData.email}
+                            onChange={handleChange}
+                            required />
                         {errors.email && <p className="error">{errors.email}</p>}
                     </div>
                     <div className="input-group">
                         <label htmlFor="password">Senha</label>
                         <input
-                        type="password"
-                        id="password"
-                        name="password"
-                        value={formData.password}
-                        onChange={handleChange}
-                        required />
+                            type="password"
+                            id="password"
+                            name="password"
+                            value={formData.password}
+                            onChange={handleChange}
+                            required />
                         {errors.password && <p className="error">{errors.password}</p>}
                     </div>
                     <button type="submit">Entrar</button>

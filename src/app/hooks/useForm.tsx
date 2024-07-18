@@ -1,4 +1,3 @@
-import { prisma } from "prisma";
 import {useState, type ChangeEvent, type FormEvent} from "react";
 
 export function useForm(){
@@ -101,7 +100,6 @@ export function useForm(){
     
             if (!response.ok) {
                 const errorData = await response.json();
-                // Atualiza o estado de erros com a mensagem da API
                 setErrors({
                   email: errorData.error || "",
                   password: "",
@@ -112,20 +110,21 @@ export function useForm(){
       
               const data = await response.json();
               console.log("Usuário criado:", data);
+
               setSuccessMessage("Cadastro realizado com sucesso!");
-              // Limpa o formulário e os erros em caso de sucesso
+
               setFormData({
                 email: "",
                 password: "",
                 confirmpassword: "",
               });
       
-              // Limpa os erros
               setErrors({
                 email: "",
                 password: "",
                 confirmpassword: "",
               });
+              
               setTimeout(() => {
                 setSuccessMessage("");
               }, 3000);
