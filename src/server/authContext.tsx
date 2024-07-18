@@ -22,20 +22,16 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
 
     useEffect(() => {
       const fetchUser = async () => {
-        try {
-          const response = await fetch('/api/auth/me');  // Supondo que você tenha uma rota de API para obter o usuário
-          if (!response.ok) throw new Error('Não foi possível recuperar o usuário.');
-          const userData = await response.json();
-          setUser(userData);
-        } catch (error) {
-          console.error('Erro ao recuperar usuário:', error);
-          setUser(null);
-        } finally {
-          setIsLoading(false);
+        const userData = localStorage.getItem('user');
+  
+        if (userData) {
+          setUser(JSON.parse(userData));
         }
+        setIsLoading(false);
       };
+  
       fetchUser();
-  }, []);
+    }, []);
 
   const login = (userData: User) => {
     setUser(userData);
