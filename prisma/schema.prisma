@@ -74,7 +74,14 @@ model VerificationToken {
 }
 
 model Usuario {
-  id        Int    @id @default(autoincrement())
-  email     String @unique
-  password  String
+    id       Int    @id @default(autoincrement())
+    email    String @unique
+    password String
+}
+
+model Produto {
+    nome            String
+    quantidade      Int
+    Id              Int      @id @default(autoincrement())
+    dia_do_cadastro DateTime @default(now())
 }
