@@ -1,6 +1,7 @@
 "use client";
 import { useForm } from "../../hooks/useForm";
 import '~/styles/cadastro.css';
+import Link from "next/link";
 
 export default function Cadastro() {
     const { formData, errors, successMessage, handleChange, handleSubmit } = useForm();
@@ -51,11 +52,11 @@ export default function Cadastro() {
                         <button type="submit">Cadastrar</button>
                     </form>
                     <div className="login-link">
-                        <p>Já tem uma conta? <a href="/login">Faça login</a></p>
+                        <p>Já tem uma conta? <Link href="/login">Faça login</Link></p>
                     </div>
                 </div>
                 <div className="home-link">
-                    <a href="/">Voltar à página inicial</a>
+                    <Link href="/">Voltar à página inicial</Link>
                 </div>
             </div>
         </div>

@@ -3,6 +3,7 @@
 import React from 'react';
 import { useAuth } from '../../../server/authContext';
 import '~/styles/conta.css';
+import Link from 'next/link';
 
 const Account = () => {
   const { user, isLoading, logout } = useAuth();
@@ -23,7 +24,7 @@ const Account = () => {
       {/* Adicione outras informações e funcionalidades da conta aqui */}
       <button onClick={logout} className="logout-button">Logout</button>  {/* Botão de logout */}
       <div className="home-link">
-        <a href="/">Voltar à página inicial</a>
+        <Link href="/">Voltar à página inicial</Link>
       </div>
     </div>
   );
