@@ -81,7 +81,9 @@ model Usuario {
 
 model Produto {
     nome            String
+    Description     String
     quantidade      Int
     Id              Int      @id @default(autoincrement())
     dia_do_cadastro DateTime @default(now())
+
 }
