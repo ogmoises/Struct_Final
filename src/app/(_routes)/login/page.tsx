@@ -3,6 +3,7 @@
 import React from 'react';
 import useLoginForm from '../../hooks/useLoginForm';
 import '~/styles/login.css';
+import Link from 'next/link';
 
 export default function Login() {
     const { formData, errors, handleChange, handleSubmit } = useLoginForm();
@@ -37,11 +38,11 @@ export default function Login() {
                     <button type="submit">Entrar</button>
                 </form>
                 <div className="signup-link">
-                    <p>Não tem uma conta? <a href="/cadastro">Cadastre-se</a></p>
+                    <p>Não tem uma conta? <Link href="/cadastro">Cadastre-se</Link></p>
                 </div>
             </div>
             <div className="home-link">
-                <a href="/">Voltar à página inicial</a>
+                <Link href="/">Voltar à página inicial</Link>
             </div>
         </div>
     );

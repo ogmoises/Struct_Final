@@ -1,6 +1,7 @@
 import React from 'react';
 import '~/styles/header.css';
 import { useAuth } from '../../server/authContext';
+import Link from 'next/link';
 
 const Header: React.FC = () => {
   const {user,logout, isLoading} = useAuth();
@@ -11,20 +12,19 @@ const Header: React.FC = () => {
 
   return (
     <header className="header">
-      <a className="logo" href="#">XS</a>
+      <Link className="logo" href="/">XS</Link>
       <nav className="navbar">
-        <a href="#">Início</a>
-        <a href="#redesfooter">Contato</a>
+        <Link href="/">Início</Link>
         {user ? (
           <>
-            <a href="/conta">Conta</a>
+            <Link href="/conta">Conta</Link>
             <a href="#" onClick={(e) => { 
               e.preventDefault();
               logout(); 
             }} className="nav-link">Logout</a>
           </>
         ) : (
-          <a href="/login">Login</a>
+          <Link href="/login">Login</Link>
         )}
       </nav>
     </header>
