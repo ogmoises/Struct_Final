@@ -1,5 +1,6 @@
-import { useState, ChangeEvent, FormEvent } from "react";
+import { useState, type ChangeEvent, type FormEvent } from "react";
 import { useAuth } from '../../server/authContext';
+
 
 export default function useLoginForm() {
   const [formData, setFormData] = useState({
@@ -42,8 +43,8 @@ export default function useLoginForm() {
       const data = await response.json();
       console.log("Usuário logado:", data);
 
-      // Chame a função login com o token retornado
-      login(data.token);
+      login(data.usuario);
+
     } catch (error) {
       console.error("Erro ao logar:", error);
     }

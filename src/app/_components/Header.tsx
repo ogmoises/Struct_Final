@@ -18,7 +18,8 @@ const Header: React.FC = () => {
         {user ? (
           <>
             <Link href="/conta">Conta</Link>
-            <a href="#" onClick={(e) => { 
+            <Link href="/crud">Crud</Link>
+            <a onClick={(e) => { 
               e.preventDefault();
               logout(); 
             }} className="nav-link">Logout</a>

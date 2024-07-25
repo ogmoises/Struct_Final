@@ -1,0 +1,17 @@
+.popup-message {
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -20%);
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 9999; /* Para garantir que o popup apareça sobre outros conteúdos */
+  }
+  
+  .popup-message p {
+    margin: 0;
+  }
+  
