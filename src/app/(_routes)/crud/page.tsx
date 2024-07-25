@@ -1,6 +1,7 @@
 'use client'
 import React, { useState, FormEvent } from 'react';
 import '~/styles/crud.css';
+import { Produtos } from '~/app/_components/Crud';
 
 const GerenciamentoEstoque: React.FC = () => {
   const [productId, setProductId] = useState<string | null>(null);
