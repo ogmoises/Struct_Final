@@ -12,10 +12,9 @@ const Header: React.FC = () => {
 
   return (
     <header className="header">
-      <a className="logo" href="#">XS</a>
+      <Link className="logo" href="/">XS</Link>
       <nav className="navbar">
-        <a href="#">Início</a>
-        <a href="#redesfooter">Contato</a>
+        <Link href="/">Início</Link>
         {user ? (
           <>
             <Link href="/conta">Conta</Link>
