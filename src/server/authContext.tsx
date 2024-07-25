@@ -35,6 +35,7 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
 
   const login = (userData: User) => {
     setUser(userData);
+    console.log(JSON.stringify(userData))
     localStorage.setItem('user', JSON.stringify(userData));
     router.push('/'); // Redirecionamento ao fazer login
   };
@@ -42,7 +43,7 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
   const logout = () => {
     setUser(null);
     localStorage.removeItem('user');
-    router.push('/'); // Redirecionamento ao fazer logout
+    router.push('/login'); // Redirecionamento ao fazer logout
   };
 
   return (

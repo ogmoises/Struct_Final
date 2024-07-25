@@ -1,9 +1,10 @@
-import {useState, type ChangeEvent, type FormEvent} from "react";
+import { useState, type ChangeEvent, type FormEvent } from "react";
+import bcrypt from "bcrypt";
 
-export function useForm(){
+export function useForm() {
     const [formData, setFormData] = useState({
         email: "",
-        password:"",
+        password: "",
         confirmpassword: "",
     });
 
@@ -16,16 +17,16 @@ export function useForm(){
     const [successMessage, setSuccessMessage] = useState<string>("");
 
     function handleChange(event: ChangeEvent<HTMLInputElement>) {
-        setFormData ({...formData, [event.target.name]: event.target.value});
+        setFormData({ ...formData, [event.target.name]: event.target.value });
     }
 
     function validate() {
         let valid = true;
         let newErrors = { email: "", password: "", confirmpassword: "" };
 
-
-
-        const parts = formData.email.split('@');
+        // Convert email to lowercase for case-insensitive comparison
+        const email = formData.email.toLowerCase();
+        const parts = email.split('@');
         if (parts.length !== 2) {
             newErrors.email = "O email deve conter UM @";
             valid = false;
@@ -46,25 +47,24 @@ export function useForm(){
                 } else if (domainParts.length !== 2) {
                     newErrors.email = "O email deve conter UM '.' no domínio";
                     valid = false;
-            } else {
-                const domainName = domainParts[0];
-                const topLevelDomain = domainParts[1];
-                if (!domainName || domainName.length === 0) {
-                    newErrors.email = "O email deve ter caracteres entre @ e '.'";
-                    valid = false;
-                } else if (!topLevelDomain || topLevelDomain.length === 0) {
-                    newErrors.email = "O email deve ter caracteres após o '.'";
-                    valid = false;
-                }
+                } else {
+                    const domainName = domainParts[0];
+                    const topLevelDomain = domainParts[1];
+                    if (!domainName || domainName.length === 0) {
+                        newErrors.email = "O email deve ter caracteres entre @ e '.'";
+                        valid = false;
+                    } else if (!topLevelDomain || topLevelDomain.length === 0) {
+                        newErrors.email = "O email deve ter caracteres após o '.'";
+                        valid = false;
+                    }
                 }
             }
         }
 
-
         if (formData.password.length < 3) {
             newErrors.password = "A senha deve ter pelo menos 3 caracteres";
             valid = false;
-        }else if (!/[A-Z]/.test(formData.password)) {
+        } else if (!/[A-Z]/.test(formData.password)) {
             newErrors.password = "A senha deve conter pelo menos um caractere maiúsculo";
             valid = false;
         } else if (!/[a-z]/.test(formData.password)) {
@@ -84,56 +84,56 @@ export function useForm(){
 
     async function handleSubmit(event: FormEvent<HTMLFormElement>) {
         event.preventDefault();
-        setErrors({ email: "", password: "", confirmpassword:""});
+        setErrors({ email: "", password: "", confirmpassword: "" });
         if (validate()) {
-          try {
-            const response = await fetch("/api/userCreation", {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify({
-                email: formData.email,
-                password: formData.password,
-              }),
-            });
-    
-            if (!response.ok) {
-                const errorData = await response.json();
-                setErrors({
-                  email: errorData.error || "",
-                  password: "",
-                  confirmpassword: "",
+            try {
+                const response = await fetch("/api/userCreation", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                        email: formData.email.toLowerCase(),
+                        password: formData.password,
+                    }),
                 });
-                throw new Error(errorData.error || "Erro ao criar usuário");
-              }
-      
-              const data = await response.json();
-              console.log("Usuário criado:", data);
 
-              setSuccessMessage("Cadastro realizado com sucesso!");
+                if (!response.ok) {
+                    const errorData = await response.json();
+                    setErrors({
+                        email: errorData.error || "",
+                        password: "",
+                        confirmpassword: "",
+                    });
+                    throw new Error(errorData.error || "Erro ao criar usuário");
+                }
 
-              setFormData({
-                email: "",
-                password: "",
-                confirmpassword: "",
-              });
-      
-              setErrors({
-                email: "",
-                password: "",
-                confirmpassword: "",
-              });
-              
-              setTimeout(() => {
-                setSuccessMessage("");
-              }, 3000);
+                const data = await response.json();
+                console.log("Usuário criado:", data);
+
+                setSuccessMessage("Cadastro realizado com sucesso!");
+
+                setFormData({
+                    email: "",
+                    password: "",
+                    confirmpassword: "",
+                });
+
+                setErrors({
+                    email: "",
+                    password: "",
+                    confirmpassword: "",
+                });
+
+                setTimeout(() => {
+                    setSuccessMessage("");
+                }, 3000);
 
             } catch (error) {
-              console.error("Erro ao criar usuário:", error);
+                console.error("Erro ao criar usuário:", error);
             }
-          }
         }
-      
+    }
+
     return { formData, errors, successMessage, handleChange, handleSubmit };
 }
