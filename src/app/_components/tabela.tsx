@@ -18,6 +18,10 @@ export async function Tabela() {
             <th>{produto.nome}</th>
             <th>{produto.Description}</th>
             <th>{produto.quantidade}</th>
+            <th>
+                <button className="decrease-btn">Diminuir</button>
+                <button className="increase-btn">Aumentar</button>
+            </th>
 </tr>})}</tbody>
       </table>   
     )
