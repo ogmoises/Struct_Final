@@ -1,15 +1,14 @@
-
-
 import '~/styles/crud.css';
 import { Produtos } from '~/app/_components/Crud';
 import { FormProduto } from '~/app/_components/FormProduto';
-
+import Protection from '~/server/protection';
 
 export default function PageForm() {
 
 
 
   return (
+    <Protection>
     <div>
       <header>
         <h1>Gerenciamento de Estoque</h1>
@@ -21,7 +20,6 @@ export default function PageForm() {
         
       </section>
     </div>
+    </Protection>
   );
 };
-
-
