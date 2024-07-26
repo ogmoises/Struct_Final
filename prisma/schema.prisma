@@ -81,7 +81,7 @@ model Usuario {
 }
 
 model Produto {
-    nome            String
+    nome            String   @unique
     Description     String
     quantidade      Int
     Id              Int      @id @default(autoincrement())
