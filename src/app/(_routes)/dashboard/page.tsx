@@ -5,10 +5,10 @@ import '~/styles/dashboard.css';
 
 export default function PageDashboard () {
     return(
-            <h1 class="historico">Histórico:</h1>
-            <div class="scrollable-table">
+           <><h1 className="historico">Histórico:</h1>
+            <div className="scrollable-table">
                 
-                <table border="1" class="tabela-historico">
+                <table border="1" className="tabela-historico">
                     <thead>
                         <tr>
                             <th>Produto</th>
@@ -22,11 +22,11 @@ export default function PageDashboard () {
                     </tbody>  
                 </table>
             </div>
-            <div class="ranking">
-                <div class="mais-vendidos">
+            <div className="ranking">
+                <div className="mais-vendidos">
                     <h1>Mais vendidos:</h1>
-                    <div class="scrollable-table">
-                        <table border="1" class="tabela-historico">
+                    <div className="scrollable-table">
+                        <table border="1" className="tabela-historico">
                             <thead>
                                 <tr>
                                     <th>Produto</th>
@@ -42,10 +42,10 @@ export default function PageDashboard () {
                     </div>
                 </div>
                 
-                <div class="menos-vendidos">
+                <div className="menos-vendidos">
                     <h1>Menos vendidos:</h1>
-                    <div class="scrollable-table">
-                        <table border="1" class="tabela-historico">
+                    <div className="scrollable-table">
+                        <table border="1" className="tabela-historico">
                             <thead>
                                 <tr>
                                     <th>Produto</th>
@@ -61,6 +61,6 @@ export default function PageDashboard () {
                     </div>
 
                 </div>
-            </div>
+            </div></>
     )
 }
