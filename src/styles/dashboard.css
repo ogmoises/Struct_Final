@@ -1,0 +1,95 @@
+.tabela-historico{
+    width: 100%;
+    font-family: "Poppins";
+    font-weight: 350;
+    font-style: normal;
+    border-spacing: 0;
+}
+/*rgb(45,209,172);*/
+tbody{
+    text-align: center;
+    width: 1000px;  
+}
+tbody tr:nth-of-type(even){
+    background-color: rgb(235, 235, 235);
+}
+table th{
+    color: rgb(0, 0, 0);
+    background-color: white;
+    position: sticky;
+    top: 0;
+    /*background-color: rgb(45,209,172);*/
+}
+.scrollable-table{
+    font-size: small;
+    height: 175px;
+    overflow-y: auto;
+    border-style: solid;
+    border-width: 5px;
+    /*border-radius: 10px;*/
+    border-style:outset;
+    border-color: rgb(155, 155, 155);
+}
+.mais-vendidos{
+    display: inline-block;
+    width: 49%;
+    
+}
+.produtos{
+    height: 185px;
+    border-style: outset;
+    border-color: rgb(124, 124, 124);
+    /*border-radius: 10px;*/
+    overflow-x: scroll;
+    overflow-y: auto;
+    white-space: nowrap;
+}
+
+.img-produto{
+    margin-left: 10px;
+    width: 130px;
+    display: block;
+}
+.menos-vendidos{
+    display: inline-block;
+    width: 49%;
+}
+.ranking{
+    display: flex;
+    width: 100%; 
+    justify-content: space-between;
+}
+div.produtos div{
+    display: inline-block;
+}
+.prod-info{
+    border-right: solid;
+    border-color: lightgray;
+    text-align: center;
+}
+.prod-info p{
+    font-size: small;
+    font-weight: bold;
+    margin: 0;
+}
+.nome-produto:hover{
+    color: rgb(45,209,172);
+    cursor: pointer;
+}
+.nome-produto:active{
+    opacity: 0.5;
+}
+.prod-info div{
+    display: inline-block;
+    text-align:center;
+
+}
+.prod-info div p{
+    display: inline-block;
+    margin: 0;
+    color: rgb(0, 0, 0);
+}
+.prod-info div img{
+    width: 20px;
+    vertical-align: middle;   
+}
