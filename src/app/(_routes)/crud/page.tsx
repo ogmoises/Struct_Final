@@ -8,7 +8,7 @@ export default function PageForm() {
 
 
   return (
-    <Protection>
+    
     <div>
       <header>
         <h1>Gerenciamento de Estoque</h1>
@@ -20,6 +20,6 @@ export default function PageForm() {
         
       </section>
     </div>
-    </Protection>
+    
   );
 };
