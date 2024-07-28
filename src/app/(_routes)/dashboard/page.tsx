@@ -8,11 +8,7 @@ import RowTable from "./rowTable";
 import { Produtos } from '~/app/_components/Crud';
 import { useEffect, useState } from 'react';
 
-interface Product {
-  id: number;
-  name: string;
-  date: string;
-}
+
 
 export default function PageDashboard() {
     /*
@@ -27,6 +23,22 @@ export default function PageDashboard() {
   
       fetchProducts();
     }, []);
+
+    interface Product {
+    id: number;
+    name: string;
+    date: string;
+    }
+
+
+    mapeamento para a tabela:
+    {products.map((product) => (
+                        <tr key={db.prduto.id}>
+                            <td>{db.produto.nome}</td>
+                            <td>{db.produto.Id}</td>
+                            <td>{new Date(db.produto.date).toLocaleDateString()}</td>
+                        </tr>
+          ))}
 */
     return(
            <><h1 className="historico">Histórico:</h1>
@@ -41,14 +53,8 @@ export default function PageDashboard() {
                             <th>Funcionário</th>
                         </tr>
                     </thead>
-                    <tbody> <!--
-                        {products.map((product) => (
-                        <tr key={db.prduto.id}>
-                            <td>{db.produto.nome}</td>
-                            <td>{db.produto.Id}</td>
-                            <td>{new Date(db.produto.date).toLocaleDateString()}</td>
-                        </tr>
-          ))}-->
+                    <tbody>
+                        
                     </tbody>  
                 </table>
             </div>
