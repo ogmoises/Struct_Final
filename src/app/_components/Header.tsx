@@ -19,6 +19,7 @@ const Header: React.FC = () => {
           <>
             <Link href="/conta">Conta</Link>
             <Link href="/crud">Crud</Link>
+            <Link href="/dashboard">Dashboard</Link>
             <Link href="/UsuarioComum">Visualização</Link>
             <a onClick={(e) => { 
               e.preventDefault();
