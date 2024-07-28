@@ -8,7 +8,7 @@ export default function PageDashboard () {
            <><h1 className="historico">Histórico:</h1>
             <div className="scrollable-table">
                 
-                <table border="1" className="tabela-historico">
+                <table border={1} className="tabela-historico">
                     <thead>
                         <tr>
                             <th>Produto</th>
@@ -26,7 +26,7 @@ export default function PageDashboard () {
                 <div className="mais-vendidos">
                     <h1>Mais vendidos:</h1>
                     <div className="scrollable-table">
-                        <table border="1" className="tabela-historico">
+                        <table border={1} className="tabela-historico">
                             <thead>
                                 <tr>
                                     <th>Produto</th>
@@ -36,7 +36,7 @@ export default function PageDashboard () {
                                 </tr>
                             </thead>
                             <tbody>
-                                
+                                {}
                             </tbody>  
                         </table>
                     </div>
@@ -45,7 +45,7 @@ export default function PageDashboard () {
                 <div className="menos-vendidos">
                     <h1>Menos vendidos:</h1>
                     <div className="scrollable-table">
-                        <table border="1" className="tabela-historico">
+                        <table border={1} className="tabela-historico">
                             <thead>
                                 <tr>
                                     <th>Produto</th>
