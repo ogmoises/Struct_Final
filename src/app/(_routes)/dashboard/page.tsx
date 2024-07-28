@@ -13,8 +13,9 @@ interface Product {
   name: string;
   date: string;
 }
-/*
+
 export default function PageDashboard() {
+    /*
     const [products, setProducts] = useState<Product[]>([]);
   
     useEffect(() => {
