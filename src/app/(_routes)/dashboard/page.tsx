@@ -13,20 +13,20 @@ interface Product {
   name: string;
   date: string;
 }
-
+/*
 export default function PageDashboard() {
     const [products, setProducts] = useState<Product[]>([]);
   
     useEffect(() => {
       const fetchProducts = async () => {
-        const response = await fetch('~/app/api/dash/route.ts');
+        const response = await fetch('/api/products');
         const data = await response.json();
         setProducts(data);
       };
   
       fetchProducts();
     }, []);
-
+*/
     return(
            <><h1 className="historico">Histórico:</h1>
             <div className="scrollable-table">
@@ -40,14 +40,14 @@ export default function PageDashboard() {
                             <th>Funcionário</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        {products.map((db.produto) => (
-                        <tr key={db.produto.Id}>
+                    <tbody> <!--
+                        {products.map((product) => (
+                        <tr key={db.prduto.id}>
                             <td>{db.produto.nome}</td>
                             <td>{db.produto.Id}</td>
                             <td>{new Date(db.produto.date).toLocaleDateString()}</td>
                         </tr>
-          ))}
+          ))}-->
                     </tbody>  
                 </table>
             </div>
