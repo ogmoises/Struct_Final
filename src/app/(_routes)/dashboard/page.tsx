@@ -2,8 +2,10 @@
 
 import React from 'react';
 import '~/styles/dashboard.css';
-import { db } from "~/server/db"
+import { db } from "~/server/db";
+import RowTable from "./rowTable";
 
+import { Produtos } from '~/app/_components/Crud';
 import { useEffect, useState } from 'react';
 
 interface Product {
@@ -12,12 +14,11 @@ interface Product {
   date: string;
 }
 
-export default function PageDashboard () {
+export default function PageDashboard() {
     const [products, setProducts] = useState<Product[]>([]);
-
     useEffect(() => {
       const fetchProducts = async () => {
-        const response = await fetch('/api/dashboard');
+        const response = await fetch('/api/dash/route.ts');
         const data = await response.json();
         setProducts(data);
       };
@@ -34,16 +35,18 @@ export default function PageDashboard () {
                         <tr>
                             <th>Produto</th>
                             <th>Código</th>
-                            <th>Data</th>
+                            <th>Ação</th>
+                            <th>Funcionário</th>
                         </tr>
                     </thead>
                     <tbody>
-                        
-                            <tr key={db.produto.Id}>
-                                <td>{db.produto.Id}</td>
-                                <td>{db.produto.nome}</td>
-                                <td>{new Date(db.produto.dia_do_cadastro).toLocaleDateString()}</td>
-                            </tr>
+                        {products.map((db.produto) => (
+                        <tr key={db.prduto.Id}>
+                            <td>{db.produto.nome}</td>
+                            <td>{db.produto.Id}</td>
+                            <td>{new Date(db.produto.dia_do_cadastro).toLocaleDateString()}</td>
+                        </tr>
+          ))}
                     </tbody>  
                 </table>
             </div>
@@ -61,6 +64,7 @@ export default function PageDashboard () {
                                 </tr>
                             </thead>
                             <tbody>
+                                {}
                             </tbody>  
                         </table>
                     </div>
