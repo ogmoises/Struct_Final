@@ -30,7 +30,7 @@ export function FormProduto(){
     }
     return(
         <section className="product-form">
-        <h2>Adicionar/Editar Produto</h2>
+        <h2>Adicionar Produto</h2>
         <form action={AddProduto} id="product-form" >
           <input type="hidden" id="product-id" />
           <label htmlFor="product-name">Nome do Produto:</label>
