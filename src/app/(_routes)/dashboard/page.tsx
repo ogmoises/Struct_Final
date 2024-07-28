@@ -16,9 +16,10 @@ interface Product {
 
 export default function PageDashboard() {
     const [products, setProducts] = useState<Product[]>([]);
+  
     useEffect(() => {
       const fetchProducts = async () => {
-        const response = await fetch('/api/dash/route.ts');
+        const response = await fetch('/api/products');
         const data = await response.json();
         setProducts(data);
       };
@@ -40,11 +41,11 @@ export default function PageDashboard() {
                         </tr>
                     </thead>
                     <tbody>
-                        {products.map((db.produto) => (
-                        <tr key={db.prduto.Id}>
+                        {products.map((product) => (
+                        <tr key={db.prduto.id}>
                             <td>{db.produto.nome}</td>
                             <td>{db.produto.Id}</td>
-                            <td>{new Date(db.produto.dia_do_cadastro).toLocaleDateString()}</td>
+                            <td>{new Date(db.produto.date).toLocaleDateString()}</td>
                         </tr>
           ))}
                     </tbody>  
