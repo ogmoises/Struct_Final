@@ -19,7 +19,7 @@ const Header: React.FC = () => {
           <>
             <Link href="/conta">Conta</Link>
             <Link href="/crud">Crud</Link>
-            <Link href="/UsuarioComum">Vizualização</Link>
+            <Link href="/UsuarioComum">Visualização</Link>
             <a onClick={(e) => { 
               e.preventDefault();
               logout(); 
