@@ -19,7 +19,7 @@ export default function PageDashboard() {
   
     useEffect(() => {
       const fetchProducts = async () => {
-        const response = await fetch('/api/products');
+        const response = await fetch('~/app/api/dash/route.ts');
         const data = await response.json();
         setProducts(data);
       };
@@ -41,8 +41,8 @@ export default function PageDashboard() {
                         </tr>
                     </thead>
                     <tbody>
-                        {products.map((product) => (
-                        <tr key={db.prduto.id}>
+                        {products.map((db.produto) => (
+                        <tr key={db.produto.Id}>
                             <td>{db.produto.nome}</td>
                             <td>{db.produto.Id}</td>
                             <td>{new Date(db.produto.date).toLocaleDateString()}</td>
